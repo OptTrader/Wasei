@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7AA3F3BB1BDA2BAB00DFE0AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3F3BA1BDA2BAB00DFE0AB /* AppDelegate.swift */; };
-		7AA3F3BD1BDA2BAB00DFE0AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3F3BC1BDA2BAB00DFE0AB /* ViewController.swift */; };
 		7AA3F3C01BDA2BAB00DFE0AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AA3F3BE1BDA2BAB00DFE0AB /* Main.storyboard */; };
 		7AA3F3C21BDA2BAB00DFE0AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AA3F3C11BDA2BAB00DFE0AB /* Assets.xcassets */; };
 		7AA3F3C51BDA2BAB00DFE0AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AA3F3C31BDA2BAB00DFE0AB /* LaunchScreen.storyboard */; };
@@ -21,6 +20,7 @@
 		7AA3F3FA1BDA2D3E00DFE0AB /* RAMTransitionItemAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3F3F31BDA2D3E00DFE0AB /* RAMTransitionItemAnimation.swift */; };
 		7AA3F3FB1BDA2D3E00DFE0AB /* RAMAnimatedTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3F3F41BDA2D3E00DFE0AB /* RAMAnimatedTabBarController.swift */; };
 		7AA3F3FC1BDA2D3E00DFE0AB /* RAMItemAnimationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3F3F51BDA2D3E00DFE0AB /* RAMItemAnimationProtocol.swift */; };
+		7AA3F3FE1BDA322400DFE0AB /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3F3FD1BDA322400DFE0AB /* FavoritesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +43,6 @@
 /* Begin PBXFileReference section */
 		7AA3F3B71BDA2BAB00DFE0AB /* Wasei.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wasei.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AA3F3BA1BDA2BAB00DFE0AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7AA3F3BC1BDA2BAB00DFE0AB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7AA3F3BF1BDA2BAB00DFE0AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7AA3F3C11BDA2BAB00DFE0AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7AA3F3C41BDA2BAB00DFE0AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -61,6 +60,7 @@
 		7AA3F3F31BDA2D3E00DFE0AB /* RAMTransitionItemAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMTransitionItemAnimation.swift; sourceTree = "<group>"; };
 		7AA3F3F41BDA2D3E00DFE0AB /* RAMAnimatedTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMAnimatedTabBarController.swift; sourceTree = "<group>"; };
 		7AA3F3F51BDA2D3E00DFE0AB /* RAMItemAnimationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMItemAnimationProtocol.swift; sourceTree = "<group>"; };
+		7AA3F3FD1BDA322400DFE0AB /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				7AA3F3BA1BDA2BAB00DFE0AB /* AppDelegate.swift */,
-				7AA3F3BC1BDA2BAB00DFE0AB /* ViewController.swift */,
+				7AA3F3FD1BDA322400DFE0AB /* FavoritesTableViewController.swift */,
 				7AA3F3BE1BDA2BAB00DFE0AB /* Main.storyboard */,
 				7AA3F3C11BDA2BAB00DFE0AB /* Assets.xcassets */,
 				7AA3F3C31BDA2BAB00DFE0AB /* LaunchScreen.storyboard */,
@@ -336,9 +336,9 @@
 				7AA3F3F81BDA2D3E00DFE0AB /* RAMFumeAnimation.swift in Sources */,
 				7AA3F3F71BDA2D3E00DFE0AB /* RAMFrameItemAnimation.swift in Sources */,
 				7AA3F3FC1BDA2D3E00DFE0AB /* RAMItemAnimationProtocol.swift in Sources */,
+				7AA3F3FE1BDA322400DFE0AB /* FavoritesTableViewController.swift in Sources */,
 				7AA3F3F61BDA2D3E00DFE0AB /* RAMBounceAnimation.swift in Sources */,
 				7AA3F3FA1BDA2D3E00DFE0AB /* RAMTransitionItemAnimation.swift in Sources */,
-				7AA3F3BD1BDA2BAB00DFE0AB /* ViewController.swift in Sources */,
 				7AA3F3FB1BDA2D3E00DFE0AB /* RAMAnimatedTabBarController.swift in Sources */,
 				7AA3F3BB1BDA2BAB00DFE0AB /* AppDelegate.swift in Sources */,
 				7AA3F3F91BDA2D3E00DFE0AB /* RAMRotationAnimation.swift in Sources */,
