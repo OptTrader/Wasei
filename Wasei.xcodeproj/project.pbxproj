@@ -21,6 +21,8 @@
 		7AA3F3FB1BDA2D3E00DFE0AB /* RAMAnimatedTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3F3F41BDA2D3E00DFE0AB /* RAMAnimatedTabBarController.swift */; };
 		7AA3F3FC1BDA2D3E00DFE0AB /* RAMItemAnimationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3F3F51BDA2D3E00DFE0AB /* RAMItemAnimationProtocol.swift */; };
 		7AA3F3FE1BDA322400DFE0AB /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3F3FD1BDA322400DFE0AB /* FavoritesTableViewController.swift */; };
+		7AA3F4001BDA349200DFE0AB /* Establishment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3F3FF1BDA349200DFE0AB /* Establishment.swift */; };
+		7AA3F4041BDA374A00DFE0AB /* ExploreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3F4031BDA374A00DFE0AB /* ExploreTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		7AA3F3F41BDA2D3E00DFE0AB /* RAMAnimatedTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMAnimatedTabBarController.swift; sourceTree = "<group>"; };
 		7AA3F3F51BDA2D3E00DFE0AB /* RAMItemAnimationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMItemAnimationProtocol.swift; sourceTree = "<group>"; };
 		7AA3F3FD1BDA322400DFE0AB /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
+		7AA3F3FF1BDA349200DFE0AB /* Establishment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Establishment.swift; sourceTree = "<group>"; };
+		7AA3F4031BDA374A00DFE0AB /* ExploreTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,13 +115,12 @@
 		7AA3F3B91BDA2BAB00DFE0AB /* Wasei */ = {
 			isa = PBXGroup;
 			children = (
-				7AA3F3BA1BDA2BAB00DFE0AB /* AppDelegate.swift */,
 				7AA3F3FD1BDA322400DFE0AB /* FavoritesTableViewController.swift */,
+				7AA3F4031BDA374A00DFE0AB /* ExploreTableViewController.swift */,
+				7AA3F3FF1BDA349200DFE0AB /* Establishment.swift */,
 				7AA3F3BE1BDA2BAB00DFE0AB /* Main.storyboard */,
-				7AA3F3C11BDA2BAB00DFE0AB /* Assets.xcassets */,
-				7AA3F3C31BDA2BAB00DFE0AB /* LaunchScreen.storyboard */,
-				7AA3F3E81BDA2D3E00DFE0AB /* RAMAnimatedTabBarController */,
-				7AA3F3C61BDA2BAB00DFE0AB /* Info.plist */,
+				7AA3F4021BDA36A100DFE0AB /* Resources */,
+				7AA3F4011BDA369700DFE0AB /* Supporting Files */,
 			);
 			path = Wasei;
 			sourceTree = "<group>";
@@ -200,6 +203,25 @@
 				7AA3F3F31BDA2D3E00DFE0AB /* RAMTransitionItemAnimation.swift */,
 			);
 			path = TransitionAniamtions;
+			sourceTree = "<group>";
+		};
+		7AA3F4011BDA369700DFE0AB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7AA3F3BA1BDA2BAB00DFE0AB /* AppDelegate.swift */,
+				7AA3F3C31BDA2BAB00DFE0AB /* LaunchScreen.storyboard */,
+				7AA3F3C11BDA2BAB00DFE0AB /* Assets.xcassets */,
+				7AA3F3C61BDA2BAB00DFE0AB /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7AA3F4021BDA36A100DFE0AB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7AA3F3E81BDA2D3E00DFE0AB /* RAMAnimatedTabBarController */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,7 +359,9 @@
 				7AA3F3F71BDA2D3E00DFE0AB /* RAMFrameItemAnimation.swift in Sources */,
 				7AA3F3FC1BDA2D3E00DFE0AB /* RAMItemAnimationProtocol.swift in Sources */,
 				7AA3F3FE1BDA322400DFE0AB /* FavoritesTableViewController.swift in Sources */,
+				7AA3F4041BDA374A00DFE0AB /* ExploreTableViewController.swift in Sources */,
 				7AA3F3F61BDA2D3E00DFE0AB /* RAMBounceAnimation.swift in Sources */,
+				7AA3F4001BDA349200DFE0AB /* Establishment.swift in Sources */,
 				7AA3F3FA1BDA2D3E00DFE0AB /* RAMTransitionItemAnimation.swift in Sources */,
 				7AA3F3FB1BDA2D3E00DFE0AB /* RAMAnimatedTabBarController.swift in Sources */,
 				7AA3F3BB1BDA2BAB00DFE0AB /* AppDelegate.swift in Sources */,
