@@ -1,5 +1,5 @@
 //
-//  ExploreTableViewController.swift
+//  AboutTableViewController.swift
 //  Wasei
 //
 //  Created by Chris Kong on 10/23/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExploreTableViewController: UITableViewController
+class AboutTableViewController: UITableViewController
 {
 
   
