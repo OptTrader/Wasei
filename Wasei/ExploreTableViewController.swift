@@ -12,14 +12,30 @@ import CloudKit
 class ExploreTableViewController: UITableViewController
   //, UISearchResultsUpdating
 {
+  @IBOutlet var spinner: UIActivityIndicatorView!
+ 
   var places: [CKRecord] = []
+  var imageCache: NSCache = NSCache()
+  
   // var searchController: UISearchController!
   // var searchResults: [Place] = []
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    spinner.hidesWhenStopped = true
+    spinner.center = view.center
+    view.addSubview(spinner)
+    spinner.startAnimating()
+    
     getRecordsFromCloud()
+    
+    // Pull To Refresh Control
+    refreshControl = UIRefreshControl()
+    refreshControl?.backgroundColor = UIColor.whiteColor()
+    refreshControl?.tintColor = UIColor.grayColor()
+    refreshControl?.addTarget(self, action: "getRecordsFromCloud", forControlEvents: UIControlEvents.ValueChanged)
+    
     
     // Adding a search bar
 //    searchController = UISearchController(searchResultsController: nil)
@@ -55,7 +71,7 @@ class ExploreTableViewController: UITableViewController
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     
-    navigationController?.hidesBarsOnSwipe = true
+    // navigationController?.hidesBarsOnSwipe = true
   }
   
   
@@ -88,10 +104,47 @@ class ExploreTableViewController: UITableViewController
     let place = places[indexPath.row]
     cell.textLabel?.text = place.objectForKey("name") as? String
     
-    if let image = place.objectForKey("image")
+    // Set default image
+    cell.imageView?.image = UIImage(named: "photoalbum")
+    
+    // Check if the image is stored in cache
+    if let imageFileURL = imageCache.objectForKey(place.recordID) as? NSURL
     {
-      let imageAsset = image as! CKAsset
-      cell.imageView?.image = UIImage(data: NSData(contentsOfURL: imageAsset.fileURL)!)
+      // Fetch image from cache
+      print("Get image from cache")
+      cell.imageView?.image = UIImage(data: NSData(contentsOfURL: imageFileURL)!)
+    
+    } else {
+      
+      // Fetch Image from Cloud in background
+      let publicDatabase = CKContainer.defaultContainer().publicCloudDatabase
+      let fetchRecordsImageOperation = CKFetchRecordsOperation(recordIDs: [place.recordID])
+      fetchRecordsImageOperation.desiredKeys = ["image"]
+      fetchRecordsImageOperation.queuePriority = .VeryHigh
+      
+      fetchRecordsImageOperation.perRecordCompletionBlock = { (record: CKRecord?, recordID: CKRecordID?, error: NSError?) -> Void in
+        if (error != nil)
+      {
+          print("Failed to get place image: \(error!.localizedDescription)")
+          return
+      }
+      
+        if let placeRecord = record
+        {
+          NSOperationQueue.mainQueue().addOperationWithBlock()
+          {
+            if let imageAsset = placeRecord.objectForKey("image") as? CKAsset
+            {
+              cell.imageView?.image = UIImage(data: NSData(contentsOfURL: imageAsset.fileURL)!)
+            
+              // Add the image URL to cache
+              self.imageCache.setObject(imageAsset.fileURL, forKey: place.recordID)
+            }
+          }
+        }
+      }
+      publicDatabase.addOperation(fetchRecordsImageOperation)
+      
     }
     
     return cell
@@ -106,27 +159,40 @@ class ExploreTableViewController: UITableViewController
     let publicDatabase = cloudContainer.publicCloudDatabase
     let predicate = NSPredicate(value: true)
     let query = CKQuery(recordType: "Place", predicate: predicate)
-    publicDatabase.performQuery(query, inZoneWithID: nil, completionHandler: {
-      (results, error) -> Void in
-      
-      if error != nil
+    
+    let queryOperation = CKQueryOperation(query: query)
+    queryOperation.desiredKeys = ["name"]
+    queryOperation.queuePriority = .VeryHigh
+    queryOperation.resultsLimit = 50
+    queryOperation.recordFetchedBlock = { (record: CKRecord!) -> Void in
+      if let placeRecord = record
       {
-        print(error)
+        self.places.append(placeRecord)
+      }
+    }
+    
+    queryOperation.queryCompletionBlock = { (cursor: CKQueryCursor?, error: NSError?) -> Void in
+      if (error != nil)
+      {
+        print("Failed to get data from iCloud - \(error!.localizedDescription)")
         return
       }
       
-      if let results = results
-      {
-        self.places = results
-        
-        NSOperationQueue.mainQueue().addOperationWithBlock()
-        {
-          self.tableView.reloadData()
-        }
-        
-      }
+      print("Successfully retrieve the data from iCloud")
+      self.refreshControl?.endRefreshing()
       
-    })
+      NSOperationQueue.mainQueue().addOperationWithBlock()
+      {
+        self.spinner.stopAnimating()
+        
+        self.tableView.reloadData()
+      }
+    }
+    // Clear array
+    places.removeAll()
+    
+    // Execute the query
+    publicDatabase.addOperation(queryOperation)
   }
   
   // MARK: - Search
