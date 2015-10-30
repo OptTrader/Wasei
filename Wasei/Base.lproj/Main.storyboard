@@ -829,21 +829,79 @@
         <scene sceneID="bKr-Bm-AQx">
             <objects>
                 <tableViewController id="Gn9-Tv-eXn" customClass="ExploreTableViewController" customModule="Wasei" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="8cp-Gr-SeX">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="133" sectionHeaderHeight="28" sectionFooterHeight="28" id="8cp-Gr-SeX">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="6z4-dp-5JH">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="133" id="6z4-dp-5JH" customClass="ExploreTableViewCell" customModule="Wasei" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="133"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6z4-dp-5JH" id="FbN-vu-bjm">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="133"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1ql-dY-Tmn">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="132"/>
+                                            <animations/>
+                                        </imageView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LZt-Ii-Ccq" userLabel="Background Blur Mask">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="132"/>
+                                            <animations/>
+                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIE-V8-QCo">
+                                            <rect key="frame" x="8" y="8.5" width="56" height="27.5"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="qlQ-hT-3ht">
+                                            <rect key="frame" x="8" y="43" width="132" height="20"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBQ-Ri-HGu">
+                                                    <rect key="frame" x="0.0" y="0.0" width="31" height="20"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Neighborhood" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brG-h2-apN">
+                                                    <rect key="frame" x="36" y="0.0" width="96" height="20"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <animations/>
+                                        </stackView>
+                                    </subviews>
                                     <animations/>
+                                    <constraints>
+                                        <constraint firstItem="YIE-V8-QCo" firstAttribute="leading" secondItem="FbN-vu-bjm" secondAttribute="leadingMargin" id="10C-dW-qGK"/>
+                                        <constraint firstItem="qlQ-hT-3ht" firstAttribute="leading" secondItem="YIE-V8-QCo" secondAttribute="leading" id="3VM-XZ-Ryh"/>
+                                        <constraint firstAttribute="trailing" secondItem="1ql-dY-Tmn" secondAttribute="trailing" id="Dbm-Ou-isw"/>
+                                        <constraint firstItem="LZt-Ii-Ccq" firstAttribute="leading" secondItem="1ql-dY-Tmn" secondAttribute="leading" id="Jfs-jw-jdK"/>
+                                        <constraint firstItem="YIE-V8-QCo" firstAttribute="top" secondItem="FbN-vu-bjm" secondAttribute="topMargin" id="L68-dR-Sdw"/>
+                                        <constraint firstItem="LZt-Ii-Ccq" firstAttribute="centerY" secondItem="1ql-dY-Tmn" secondAttribute="centerY" id="NLL-3k-MxT"/>
+                                        <constraint firstItem="1ql-dY-Tmn" firstAttribute="leading" secondItem="FbN-vu-bjm" secondAttribute="leading" id="TyQ-pX-kRx"/>
+                                        <constraint firstItem="LZt-Ii-Ccq" firstAttribute="top" secondItem="1ql-dY-Tmn" secondAttribute="top" id="YiH-qK-wdu"/>
+                                        <constraint firstItem="qlQ-hT-3ht" firstAttribute="top" secondItem="YIE-V8-QCo" secondAttribute="bottom" constant="7" id="b5J-mJ-dgC"/>
+                                        <constraint firstItem="LZt-Ii-Ccq" firstAttribute="trailing" secondItem="1ql-dY-Tmn" secondAttribute="trailing" id="fVO-Uv-3da"/>
+                                        <constraint firstItem="1ql-dY-Tmn" firstAttribute="top" secondItem="FbN-vu-bjm" secondAttribute="top" id="pE7-7M-KAo"/>
+                                        <constraint firstItem="1ql-dY-Tmn" firstAttribute="centerY" secondItem="FbN-vu-bjm" secondAttribute="centerY" id="rWQ-er-KX8"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <animations/>
+                                <connections>
+                                    <outlet property="bgImageView" destination="1ql-dY-Tmn" id="YWA-d4-cZK"/>
+                                    <outlet property="nameLabel" destination="YIE-V8-QCo" id="XXs-QT-ySW"/>
+                                    <outlet property="neighborhoodLabel" destination="brG-h2-apN" id="reH-ce-JvS"/>
+                                    <outlet property="typeLabel" destination="OBQ-Ri-HGu" id="2S6-7a-pks"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -893,10 +951,10 @@
                 <customObject id="fDi-V0-DcY" customClass="RAMLeftRotationAnimation" customModule="Wasei" customModuleProvider="target">
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="textSelectedColor">
-                            <color key="value" red="0.93725490196078431" green="0.42352941176470588" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="value" red="0.96470588235294119" green="0.45490196078431372" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="color" keyPath="iconSelectedColor">
-                            <color key="value" red="0.93725490196078431" green="0.42352941176470588" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="value" red="0.96470588235294119" green="0.45490196078431372" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </customObject>
@@ -928,10 +986,10 @@
                             <real key="value" value="0.80000000000000004"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="color" keyPath="textSelectedColor">
-                            <color key="value" red="0.93725490196078431" green="0.42352941176470588" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="value" red="0.96470588235294119" green="0.45490196078431372" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="color" keyPath="iconSelectedColor">
-                            <color key="value" red="0.93725490196078431" green="0.42352941176470588" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="value" red="0.96470588235294119" green="0.45490196078431372" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </customObject>
@@ -1010,10 +1068,10 @@
                 <customObject id="WdJ-Vf-qrT" customClass="RAMRightRotationAnimation" customModule="Wasei" customModuleProvider="target">
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="textSelectedColor">
-                            <color key="value" red="0.93725490196078431" green="0.42352941176470588" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="value" red="0.96470588235294119" green="0.45490196078431372" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="color" keyPath="iconSelectedColor">
-                            <color key="value" red="0.93725490196078431" green="0.42352941176470588" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="value" red="0.96470588235294119" green="0.45490196078431372" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </customObject>

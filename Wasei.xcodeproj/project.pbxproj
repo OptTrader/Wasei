@@ -20,6 +20,7 @@
 		7A183FDE1BE11B4D00B37B47 /* WalkthroughPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A183FDD1BE11B4D00B37B47 /* WalkthroughPageViewController.swift */; };
 		7A183FE11BE124EF00B37B47 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A183FE01BE124EF00B37B47 /* WebViewController.swift */; };
 		7A183FE41BE20B3B00B37B47 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A183FE31BE20B3B00B37B47 /* CloudKit.framework */; };
+		7A42D1461BE3501A00E81823 /* ExploreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A42D1451BE3501A00E81823 /* ExploreTableViewCell.swift */; };
 		7AA3F3BB1BDA2BAB00DFE0AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3F3BA1BDA2BAB00DFE0AB /* AppDelegate.swift */; };
 		7AA3F3C01BDA2BAB00DFE0AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AA3F3BE1BDA2BAB00DFE0AB /* Main.storyboard */; };
 		7AA3F3C21BDA2BAB00DFE0AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AA3F3C11BDA2BAB00DFE0AB /* Assets.xcassets */; };
@@ -70,6 +71,7 @@
 		7A183FE01BE124EF00B37B47 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		7A183FE21BE20B2B00B37B47 /* Wasei.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Wasei.entitlements; sourceTree = "<group>"; };
 		7A183FE31BE20B3B00B37B47 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		7A42D1451BE3501A00E81823 /* ExploreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreTableViewCell.swift; sourceTree = "<group>"; };
 		7AA3F3B71BDA2BAB00DFE0AB /* Wasei.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wasei.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AA3F3BA1BDA2BAB00DFE0AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7AA3F3BF1BDA2BAB00DFE0AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 			children = (
 				7A183FC31BDDDC1D00B37B47 /* FavoritesTableViewCell.swift */,
 				7A183FC91BDDE84800B37B47 /* DetailsTableViewCell.swift */,
+				7A42D1451BE3501A00E81823 /* ExploreTableViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 				7A183FCA1BDDE84800B37B47 /* DetailsTableViewCell.swift in Sources */,
 				7AA3F3FA1BDA2D3E00DFE0AB /* RAMTransitionItemAnimation.swift in Sources */,
 				7AA3F3FB1BDA2D3E00DFE0AB /* RAMAnimatedTabBarController.swift in Sources */,
+				7A42D1461BE3501A00E81823 /* ExploreTableViewCell.swift in Sources */,
 				7A183FC41BDDDC1D00B37B47 /* FavoritesTableViewCell.swift in Sources */,
 				7AA3F3BB1BDA2BAB00DFE0AB /* AppDelegate.swift in Sources */,
 				7A183FC71BDDDF5100B37B47 /* DetailsViewController.swift in Sources */,

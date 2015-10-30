@@ -50,7 +50,6 @@ class ExploreTableViewController: UITableViewController
     
   }
 
-  
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
     
@@ -67,13 +66,6 @@ class ExploreTableViewController: UITableViewController
       presentViewController(pageViewController, animated: true, completion: nil)
     }
   }
-  
-  override func viewWillAppear(animated: Bool) {
-    super.viewWillAppear(animated)
-    
-    // navigationController?.hidesBarsOnSwipe = true
-  }
-  
   
   // MARK: - Table view data source
   
@@ -98,21 +90,23 @@ class ExploreTableViewController: UITableViewController
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
   {
-    let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+    let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! ExploreTableViewCell
     
     // Configure the cell..
     let place = places[indexPath.row]
-    cell.textLabel?.text = place.objectForKey("name") as? String
+    cell.nameLabel.text = place.objectForKey("name") as? String
+    cell.typeLabel.text = place.objectForKey("type") as? String
+    cell.neighborhoodLabel.text = place.objectForKey("neighborhood") as? String
     
     // Set default image
-    cell.imageView?.image = UIImage(named: "photoalbum")
+    cell.bgImageView.image = nil
     
     // Check if the image is stored in cache
     if let imageFileURL = imageCache.objectForKey(place.recordID) as? NSURL
     {
       // Fetch image from cache
       print("Get image from cache")
-      cell.imageView?.image = UIImage(data: NSData(contentsOfURL: imageFileURL)!)
+      cell.bgImageView.image = UIImage(data: NSData(contentsOfURL: imageFileURL)!)
     
     } else {
       
@@ -135,7 +129,7 @@ class ExploreTableViewController: UITableViewController
           {
             if let imageAsset = placeRecord.objectForKey("image") as? CKAsset
             {
-              cell.imageView?.image = UIImage(data: NSData(contentsOfURL: imageAsset.fileURL)!)
+              cell.bgImageView.image = UIImage(data: NSData(contentsOfURL: imageAsset.fileURL)!)
             
               // Add the image URL to cache
               self.imageCache.setObject(imageAsset.fileURL, forKey: place.recordID)
@@ -144,9 +138,7 @@ class ExploreTableViewController: UITableViewController
         }
       }
       publicDatabase.addOperation(fetchRecordsImageOperation)
-      
     }
-    
     return cell
   }
   
@@ -159,9 +151,10 @@ class ExploreTableViewController: UITableViewController
     let publicDatabase = cloudContainer.publicCloudDatabase
     let predicate = NSPredicate(value: true)
     let query = CKQuery(recordType: "Place", predicate: predicate)
+    query.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
     
     let queryOperation = CKQueryOperation(query: query)
-    queryOperation.desiredKeys = ["name"]
+    queryOperation.desiredKeys = ["name", "type", "neighborhood"]
     queryOperation.queuePriority = .VeryHigh
     queryOperation.resultsLimit = 50
     queryOperation.recordFetchedBlock = { (record: CKRecord!) -> Void in
@@ -184,7 +177,6 @@ class ExploreTableViewController: UITableViewController
       NSOperationQueue.mainQueue().addOperationWithBlock()
       {
         self.spinner.stopAnimating()
-        
         self.tableView.reloadData()
       }
     }
@@ -215,7 +207,6 @@ class ExploreTableViewController: UITableViewController
 //      return nameMatch != nil || addressMatch != nil
 //    })
 //  }
-  
   
   @IBAction func unwindToHomeScreen(segue: UIStoryboardSegue)
   {

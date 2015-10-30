@@ -53,7 +53,7 @@ class FavoritesTableViewController: UITableViewController, NSFetchedResultsContr
     // Customize the appearance of the search bar
     searchController.searchBar.placeholder = "Search places..."
     searchController.searchBar.tintColor = UIColor.whiteColor()
-    searchController.searchBar.barTintColor = UIColor(red: 30.0/255.0, green: 30.0/255.0, blue: 30.0/255.0, alpha: 1.0)
+    searchController.searchBar.barTintColor = UIColor(red: 253.0/255.0, green: 165.0/255.0, blue: 65.0/255.0, alpha: 1.0)
     
   }
   
