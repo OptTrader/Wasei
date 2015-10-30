@@ -97,8 +97,6 @@ class ExploreTableViewController: UITableViewController
     return cell
   }
   
-  
-  
   // MARK: - CloudKit
   
   func getRecordsFromCloud()
