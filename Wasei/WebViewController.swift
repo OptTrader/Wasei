@@ -15,6 +15,7 @@ class WebViewController: UIViewController
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    // need to update
     if let url = NSURL(string: "http://chrisjkong.com")
     {
       let request = NSURLRequest(URL: url)

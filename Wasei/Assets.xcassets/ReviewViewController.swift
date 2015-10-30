@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ReviewViewController: UIViewController
 {
@@ -22,7 +23,6 @@ class ReviewViewController: UIViewController
     super.viewDidLoad()
   
     // Apply a blurring effect to the background image view
-    
     let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
     let blurEffectView = UIVisualEffectView(effect: blurEffect)
     blurEffectView.frame = view.bounds
@@ -36,6 +36,7 @@ class ReviewViewController: UIViewController
   
   override func viewDidAppear(animated: Bool)
   {
+    // Spring animation
     UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: [], animations: {
       self.dislikeButton.transform = CGAffineTransformIdentity
       }, completion: nil)

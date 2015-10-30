@@ -13,6 +13,7 @@ class AboutTableViewController: UITableViewController
 {
   var sectionTitles = ["Leave Feedback", "Follow Us"]
   var sectionContent = [["Rate us on App Store", "Tell us your feedback"], ["Twitter", "Facebook", "Pinterest"]]
+  // need to update
   var links = ["https://twitter.com/appcodamobile", "https://facebook.com/appcodamobile", "https://www.pinterest.com/appcoda/"]
   
   override func viewDidLoad() {

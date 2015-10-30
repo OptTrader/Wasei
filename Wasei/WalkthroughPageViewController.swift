@@ -10,11 +10,11 @@ import UIKit
 
 class WalkthroughPageViewController: UIPageViewController, UIPageViewControllerDataSource
 {
-  var pageHeadings = ["Personalize", "Locate", "Discover"]
+  var pageHeadings = ["Personalize", "Locate", "Explore"]
   var pageImages = ["intro-1", "intro-2", "intro-3"]
-  var pageContent = ["Pin your favorite restaurants and create your own food guide",
-    "Search and locate your favourite restaurant on Maps",
-    "Find restaurants pinned by your friends and other foodies around the world"]
+  var pageContent = ["Pin your favorite places and create your own guide",
+    "Search and locate your favourite places on Maps",
+    "Find places pinned by your friends and other people around the world"]
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -29,6 +29,8 @@ class WalkthroughPageViewController: UIPageViewController, UIPageViewControllerD
     }
     
   }
+  
+  // MARK: - UIPageViewControllerDataSource
   
   func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController?
   {
@@ -74,8 +76,5 @@ class WalkthroughPageViewController: UIPageViewController, UIPageViewControllerD
       setViewControllers([nextViewController], direction: .Forward, animated: true, completion: nil)
     }
   }
-
-  
-
   
 }

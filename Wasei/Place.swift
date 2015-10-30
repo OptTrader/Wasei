@@ -19,19 +19,6 @@ class Place: NSManagedObject
   @NSManaged var phoneNumber: String?
   @NSManaged var hasWifi: NSNumber?
   @NSManaged var hasBabySeats: NSNumber?
-  @NSManaged var rating: String?
-  
-//  init(name: String, type: String, address: String, image: String, neighborhood: String, phoneNumber: String, hasWifi: Bool, hasBabySeats: Bool, rating: String)
-//  {
-//    self.name = name
-//    self.type = type
-//    self.address = address
-//    self.image = image
-//    self.neighborhood = neighborhood
-//    self.phoneNumber = phoneNumber
-//    self.hasWifi = hasWifi
-//    self.hasBabySeats = hasBabySeats
-//    self.rating = rating
-//  }
+  @NSManaged var rating: String
   
 }

@@ -32,7 +32,7 @@ class AddPlaceTableViewController: UITableViewController, UIImagePickerControlle
     
   }
   
-  // MARK: - Image Picker
+  // MARK: - Table view data source
   
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
   {
@@ -50,6 +50,8 @@ class AddPlaceTableViewController: UITableViewController, UIImagePickerControlle
     }
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
   }
+  
+  // MARK: - UIImagePickerControllerDelegate methods
   
   func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject])
   {
@@ -85,9 +87,10 @@ class AddPlaceTableViewController: UITableViewController, UIImagePickerControlle
     // Validate input fields
     if name == "" || type == "" || address == ""
     {
-      let alertController = UIAlertController(title: "Oops", message: "We can't proceed because one of the required fields is blank. Please note that all fields are required.", preferredStyle: UIAlertControllerStyle.Alert)
+      let alertController = UIAlertController(title: "Oops", message: "We can't proceed because one of the required fields is blank.", preferredStyle: UIAlertControllerStyle.Alert)
       alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
       self.presentViewController(alertController, animated: true, completion: nil)
+      
       return
     }
     
@@ -118,6 +121,7 @@ class AddPlaceTableViewController: UITableViewController, UIImagePickerControlle
       }
     }
     
+    // Save the record to iCloud
     saveRecordToCloud(place)
     
     // Dismiss the view controller
@@ -126,6 +130,7 @@ class AddPlaceTableViewController: UITableViewController, UIImagePickerControlle
   
   @IBAction func toggleHasWifiButton(sender: UIButton)
   {
+    // Yes button clicked
     if sender == wifiYesButton
     {
       hasWifi = true
@@ -142,6 +147,7 @@ class AddPlaceTableViewController: UITableViewController, UIImagePickerControlle
   
   @IBAction func toggleHasBabySeatsButton(sender: UIButton)
   {
+    // Yes button clicked
     if sender == babySeatsYesButton
     {
       hasBabySeats = true
@@ -155,6 +161,8 @@ class AddPlaceTableViewController: UITableViewController, UIImagePickerControlle
       babySeatsNoButton.backgroundColor = UIColor(red: 235.0/255.0, green: 73.0/255.0, blue: 27.0/255.0, alpha: 1.0)
     }
   }
+  
+  // MARK: - CloudKit Methods
   
   func saveRecordToCloud(place: Place!) -> Void
   {
@@ -195,6 +203,5 @@ class AddPlaceTableViewController: UITableViewController, UIImagePickerControlle
       }
     })
   }
-  
   
 }

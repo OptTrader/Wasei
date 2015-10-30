@@ -167,6 +167,14 @@
 			name = CoreData;
 			sourceTree = "<group>";
 		};
+		7A42D1471BE397AB00E81823 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7A183FD41BDF26E300B37B47 /* Place.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		7AA3F3AE1BDA2BAB00DFE0AB = {
 			isa = PBXGroup;
 			children = (
@@ -194,7 +202,7 @@
 			children = (
 				7A183FE21BE20B2B00B37B47 /* Wasei.entitlements */,
 				7A183FC81BDDE58C00B37B47 /* Controllers */,
-				7A183FD41BDF26E300B37B47 /* Place.swift */,
+				7A42D1471BE397AB00E81823 /* Models */,
 				7A183FC51BDDDC3800B37B47 /* Cells */,
 				7AA3F3BE1BDA2BAB00DFE0AB /* Main.storyboard */,
 				7AA3F4021BDA36A100DFE0AB /* Resources */,

@@ -27,8 +27,11 @@ class WalkthroughContentViewController: UIViewController
     headingLabel.text = heading
     contentImageView.image = UIImage(named: imageFile)
     contentLabel.text = content
+    
+    // Set the current page
     pageControl.currentPage = index
     
+    // Change the forward button's title
     switch index
     {
     case 0...1:

@@ -67,6 +67,52 @@ class ExploreTableViewController: UITableViewController
     }
   }
   
+  // MARK: - CloudKit
+  
+  func getRecordsFromCloud()
+  {
+    // Fetch data using Convenience API
+    let cloudContainer = CKContainer.defaultContainer()
+    let publicDatabase = cloudContainer.publicCloudDatabase
+    let predicate = NSPredicate(value: true)
+    let query = CKQuery(recordType: "Place", predicate: predicate)
+    // to update
+    query.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+    
+    let queryOperation = CKQueryOperation(query: query)
+    queryOperation.desiredKeys = ["name", "type", "neighborhood"]
+    queryOperation.queuePriority = .VeryHigh
+    queryOperation.resultsLimit = 50
+    queryOperation.recordFetchedBlock = { (record: CKRecord!) -> Void in
+      if let placeRecord = record
+      {
+        self.places.append(placeRecord)
+      }
+    }
+    
+    queryOperation.queryCompletionBlock = { (cursor: CKQueryCursor?, error: NSError?) -> Void in
+      if (error != nil)
+      {
+        print("Failed to get data from iCloud - \(error!.localizedDescription)")
+        return
+      }
+      
+      print("Successfully retrieve the data from iCloud")
+      self.refreshControl?.endRefreshing()
+      
+      NSOperationQueue.mainQueue().addOperationWithBlock()
+      {
+        self.spinner.stopAnimating()
+        self.tableView.reloadData()
+      }
+    }
+    // Clear array
+    places.removeAll()
+    
+    // Execute the query
+    publicDatabase.addOperation(queryOperation)
+  }
+  
   // MARK: - Table view data source
   
   override func numberOfSectionsInTableView(tableView: UITableView) -> Int
@@ -119,8 +165,8 @@ class ExploreTableViewController: UITableViewController
       fetchRecordsImageOperation.perRecordCompletionBlock = { (record: CKRecord?, recordID: CKRecordID?, error: NSError?) -> Void in
         if (error != nil)
       {
-          print("Failed to get place image: \(error!.localizedDescription)")
-          return
+        print("Failed to get place image: \(error!.localizedDescription)")
+        return
       }
       
         if let placeRecord = record
@@ -142,50 +188,6 @@ class ExploreTableViewController: UITableViewController
     return cell
   }
   
-  // MARK: - CloudKit
-  
-  func getRecordsFromCloud()
-  {
-    // Fetch data using Convenience API
-    let cloudContainer = CKContainer.defaultContainer()
-    let publicDatabase = cloudContainer.publicCloudDatabase
-    let predicate = NSPredicate(value: true)
-    let query = CKQuery(recordType: "Place", predicate: predicate)
-    query.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
-    
-    let queryOperation = CKQueryOperation(query: query)
-    queryOperation.desiredKeys = ["name", "type", "neighborhood"]
-    queryOperation.queuePriority = .VeryHigh
-    queryOperation.resultsLimit = 50
-    queryOperation.recordFetchedBlock = { (record: CKRecord!) -> Void in
-      if let placeRecord = record
-      {
-        self.places.append(placeRecord)
-      }
-    }
-    
-    queryOperation.queryCompletionBlock = { (cursor: CKQueryCursor?, error: NSError?) -> Void in
-      if (error != nil)
-      {
-        print("Failed to get data from iCloud - \(error!.localizedDescription)")
-        return
-      }
-      
-      print("Successfully retrieve the data from iCloud")
-      self.refreshControl?.endRefreshing()
-      
-      NSOperationQueue.mainQueue().addOperationWithBlock()
-      {
-        self.spinner.stopAnimating()
-        self.tableView.reloadData()
-      }
-    }
-    // Clear array
-    places.removeAll()
-    
-    // Execute the query
-    publicDatabase.addOperation(queryOperation)
-  }
   
   // MARK: - Search
 //  
@@ -208,10 +210,10 @@ class ExploreTableViewController: UITableViewController
 //    })
 //  }
   
+  // MARK: - Navigation
+  
   @IBAction func unwindToHomeScreen(segue: UIStoryboardSegue)
   {
   }
-  
-
 
 }

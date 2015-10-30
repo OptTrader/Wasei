@@ -36,12 +36,12 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
     // Enable self sizing cells
     tableView.estimatedRowHeight = 36.0
     tableView.rowHeight = UITableViewAutomaticDimension
-    
-    // Set the rating of the restaurant
-    if let rating = place.rating where rating != ""
-    {
-      ratingButton.setImage(UIImage(named: place.rating!), forState: UIControlState.Normal)
-    }
+
+    // Set the rating of the place
+//    if let rating = place.rating where rating != ""
+//    {
+//      ratingButton.setImage(UIImage(named: rating), forState: UIControlState.Normal)
+//    }
     
   }
   
@@ -57,7 +57,7 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
   {
-    return 5
+    return 7
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
@@ -124,6 +124,8 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
       }
     }
   }
+  
+  // MARK: - Navigation
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
   {

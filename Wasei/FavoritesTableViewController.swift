@@ -26,7 +26,7 @@ class FavoritesTableViewController: UITableViewController, NSFetchedResultsContr
     tableView.estimatedRowHeight = 36.0
     tableView.rowHeight = UITableViewAutomaticDimension
   
-    // Fetch request
+    // Load places from database
     let fetchRequest = NSFetchRequest(entityName: "Place")
     let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
     fetchRequest.sortDescriptors = [sortDescriptor]
@@ -127,12 +127,6 @@ class FavoritesTableViewController: UITableViewController, NSFetchedResultsContr
     // Delete button
     let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Delete", handler: { (action, indexPath) -> Void in
       
-      // to remove
-      // Delete the row from the data source
-      self.places.removeAtIndex(indexPath.row)
-      self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation:
-        .Fade)
-      
       // Delete the row from the database
       if let managedObjectContext = (UIApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectContext
       {
@@ -161,6 +155,7 @@ class FavoritesTableViewController: UITableViewController, NSFetchedResultsContr
     return false
     
   } else {
+      
     return true
     }
   }
@@ -222,7 +217,9 @@ class FavoritesTableViewController: UITableViewController, NSFetchedResultsContr
     return nameMatch != nil || addressMatch != nil
     })
   }
-
+  
+  // MARK: - Navigation
+  
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
   {
     if segue.identifier == "showDetails"

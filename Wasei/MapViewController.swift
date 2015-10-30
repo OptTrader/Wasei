@@ -17,14 +17,7 @@ class MapViewController: UIViewController, MKMapViewDelegate
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    mapView.delegate = self
-    mapView.showsCompass = true
-    mapView.showsScale = true
-    mapView.showsTraffic = true
-    mapView.showsPointsOfInterest = true
-    mapView.showsBuildings = true
-    
+
     // Convert address to coordinate and annotate it on map
     let geoCoder = CLGeocoder()
     geoCoder.geocodeAddressString(place.address, completionHandler: { placemarks, error in
@@ -54,7 +47,18 @@ class MapViewController: UIViewController, MKMapViewDelegate
       }
     })
     
+    // Map customization
+    mapView.showsCompass = true
+    mapView.showsScale = true
+    mapView.showsTraffic = true
+    mapView.showsPointsOfInterest = true
+    mapView.showsBuildings = true
+    
+    // Set the MKMapViewDelegate
+    mapView.delegate = self
   }
+  
+  // MARK: - MKMapViewDelegate methods
   
   func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView?
   {
@@ -77,7 +81,9 @@ class MapViewController: UIViewController, MKMapViewDelegate
     let leftIconView = UIImageView(frame: CGRectMake(0, 0, 53, 53))
     leftIconView.image = UIImage(data: place.image!)
     annotationView?.leftCalloutAccessoryView = leftIconView
-    annotationView?.pinTintColor = UIColor.blueColor()
+    
+    // Pin color customization
+    annotationView?.pinTintColor = UIColor(red: 246.0/255.0, green: 116.0/255.0, blue: 47.0/255.0, alpha: 1.0)
     
     return annotationView
   }
