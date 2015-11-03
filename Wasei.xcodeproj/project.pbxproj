@@ -36,6 +36,8 @@
 		7AA3F3FC1BDA2D3E00DFE0AB /* RAMItemAnimationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3F3F51BDA2D3E00DFE0AB /* RAMItemAnimationProtocol.swift */; };
 		7AA3F3FE1BDA322400DFE0AB /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3F3FD1BDA322400DFE0AB /* FavoritesTableViewController.swift */; };
 		7AA3F4041BDA374A00DFE0AB /* ExploreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3F4031BDA374A00DFE0AB /* ExploreTableViewController.swift */; };
+		7AC716951BE46C4C00687716 /* ExploreDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC716941BE46C4C00687716 /* ExploreDetailsViewController.swift */; };
+		7AC716971BE46DEA00687716 /* ExploreDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC716961BE46DEA00687716 /* ExploreDetailsTableViewCell.swift */; };
 		7ACE797F1BDA4FCF0083A4AC /* AboutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACE797E1BDA4FCF0083A4AC /* AboutTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +95,8 @@
 		7AA3F3F51BDA2D3E00DFE0AB /* RAMItemAnimationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMItemAnimationProtocol.swift; sourceTree = "<group>"; };
 		7AA3F3FD1BDA322400DFE0AB /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
 		7AA3F4031BDA374A00DFE0AB /* ExploreTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreTableViewController.swift; sourceTree = "<group>"; };
+		7AC716941BE46C4C00687716 /* ExploreDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreDetailsViewController.swift; sourceTree = "<group>"; };
+		7AC716961BE46DEA00687716 /* ExploreDetailsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		7ACE797E1BDA4FCF0083A4AC /* AboutTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,6 +133,7 @@
 				7A183FC31BDDDC1D00B37B47 /* FavoritesTableViewCell.swift */,
 				7A183FC91BDDE84800B37B47 /* DetailsTableViewCell.swift */,
 				7A42D1451BE3501A00E81823 /* ExploreTableViewCell.swift */,
+				7AC716961BE46DEA00687716 /* ExploreDetailsTableViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -138,6 +143,7 @@
 			children = (
 				7AA3F3FD1BDA322400DFE0AB /* FavoritesTableViewController.swift */,
 				7AA3F4031BDA374A00DFE0AB /* ExploreTableViewController.swift */,
+				7AC716941BE46C4C00687716 /* ExploreDetailsViewController.swift */,
 				7A183FD61BDF27B500B37B47 /* AddPlaceTableViewController.swift */,
 				7ACE797E1BDA4FCF0083A4AC /* AboutTableViewController.swift */,
 				7A183FE01BE124EF00B37B47 /* WebViewController.swift */,
@@ -455,6 +461,7 @@
 				7A183FD51BDF26E300B37B47 /* Place.swift in Sources */,
 				7AA3F3F71BDA2D3E00DFE0AB /* RAMFrameItemAnimation.swift in Sources */,
 				7A183FDC1BE11A6400B37B47 /* WalkthroughContentViewController.swift in Sources */,
+				7AC716951BE46C4C00687716 /* ExploreDetailsViewController.swift in Sources */,
 				7AA3F3FC1BDA2D3E00DFE0AB /* RAMItemAnimationProtocol.swift in Sources */,
 				7A183FDA1BE05EDC00B37B47 /* Wasei.xcdatamodeld in Sources */,
 				7A183FDE1BE11B4D00B37B47 /* WalkthroughPageViewController.swift in Sources */,
@@ -466,6 +473,7 @@
 				7AA3F3FA1BDA2D3E00DFE0AB /* RAMTransitionItemAnimation.swift in Sources */,
 				7AA3F3FB1BDA2D3E00DFE0AB /* RAMAnimatedTabBarController.swift in Sources */,
 				7A42D1461BE3501A00E81823 /* ExploreTableViewCell.swift in Sources */,
+				7AC716971BE46DEA00687716 /* ExploreDetailsTableViewCell.swift in Sources */,
 				7A183FC41BDDDC1D00B37B47 /* FavoritesTableViewCell.swift in Sources */,
 				7AA3F3BB1BDA2BAB00DFE0AB /* AppDelegate.swift in Sources */,
 				7A183FC71BDDDF5100B37B47 /* DetailsViewController.swift in Sources */,
